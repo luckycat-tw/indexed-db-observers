@@ -266,7 +266,7 @@
   var pushOperation = function(objectStore, changesMap, type, keyOrRange, value) { 
     var name = objectStore.name;
     if (!hasListeners(objectStore.transaction.db.name, name)) {
-      console.log("no listeners found")
+      console.log("no listeners found", objectStore.transaction.db.name, name)
       return;
     }
     if (!changesMap.has(name)) {
@@ -386,7 +386,7 @@
       tx.db._openTransactions += 1;
     }
     tx.addEventListener('complete', function() {
-      console.log(tx._pendingObservers);
+      console.log("Pending observers:", tx._pendingObservers);
       if (tx._pendingObservers.length != 0) {
         console.log("adding observers!")
         for (var observer of tx._pendingObservers) {
