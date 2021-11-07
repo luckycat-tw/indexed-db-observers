@@ -372,7 +372,6 @@
     }
     var pendingObserver = { uuid: generateUUID(), fcn: listenerFunction, options: sanatizedOptions};
     this._pendingObservers.push(pendingObserver);
-    console.log(pendingObserver);
     return generateControlForUUID(pendingObserver.uuid);
   };
 
